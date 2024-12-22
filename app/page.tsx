@@ -32,7 +32,7 @@ export default function Home() {
       {/* App description */}
       <div className="our-app-description">
         <div className="left-pictures">
-          <Image className="image-component" src="/images/exercise1.jpg" alt="Woman doing ab crunch" width={500} height={0} />
+          <Image className="image-component" src="/images/running.jpg" alt="Woman doing ab crunch" width={500} height={0} />
         </div>
         <div className="right-words">
           <p className="right-words-title">A section to describe what the app does</p>
@@ -47,14 +47,14 @@ export default function Home() {
           <p className="left-words-main">A brief description of the app feature</p>
         </div>
         <div className="right-pictures">
-          <Image className="image-component" src="/images/exercise1.jpg" alt="Woman doing ab crunch" width={500} height={0} />
+          <Image className="image-component" src="/images/smartphone.jpg" alt="Woman doing ab crunch" width={500} height={0} />
         </div>
       </div>
 
       {/* App benefits */}
       <div className="our-app-benefits">
         <div className="left-pictures">
-          <Image className="image-component" src="/images/exercise1.jpg" alt="Woman doing ab crunch" width={500} height={0} />
+          <Image className="image-component" src="/images/success.jpg" alt="Woman doing ab crunch" width={500} height={0} />
         </div>
         <div className="right-words">
           <p className="right-words-title">A section to describe the benefit of the app</p>
