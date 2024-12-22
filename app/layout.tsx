@@ -1,3 +1,4 @@
+"use client"
 import type { Metadata } from "next";
 import "./globals.css";
 import "./styles.css";
@@ -5,18 +6,32 @@ import Link from 'next/link';
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import "./fontawesome";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { faUser, faTimes, faBars } from "@fortawesome/free-solid-svg-icons";
+import { usePathname } from "next/navigation";
 
-export const metadata: Metadata = {
-  title: "Exercise App",
-  description: "An exercise monitoring app by CupCakesNSpan",
-};
+import { useState, useEffect } from "react";
+
+// export const metadata: Metadata = {
+//   title: "Exercise App",
+//   description: "An exercise monitoring app by CupCakesNSpan",
+// };
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  const [userDropdownVisible, setUserDropdownVisible] = useState(false);
+  const [mobileMenuVisible, setMobileMenuVisible] = useState(false);
+  const pathname = usePathname();
+
+  // Close menus on route change
+  useEffect(() => {
+    setUserDropdownVisible(false);
+    setMobileMenuVisible(false);
+  }, [pathname]);
+
   return (
     <html lang="en">
       <head>
@@ -30,17 +45,45 @@ export default function RootLayout({
             <div className="nav-title">
               AppNameAndLogo
             </div>
-            <div className="nav-navlinks">
-              <div className="nav-navlink">
-                <Link className="navlink" href="/">HOME</Link>
-              </div>
-              <div className="nav-navlink">
-                <Link className="navlink" href="/about">ABOUT</Link>
-              </div>
-              <div className="nav-navlink">
-                <Link className="navlink" href="/about">WORKOUTS</Link>
+            
+            {/* Navigation Links */}
+            <div className="hidden lg:block">
+              <div className="nav-navlinks">
+                <div className="nav-navlink">
+                  <Link className="navlink" href="/">HOME</Link>
+                </div>
+                <div className="nav-navlink">
+                  <Link className="navlink" href="/about">ABOUT</Link>
+                </div>
+                <div className="nav-navlink">
+                  <Link className="navlink" href="/about">WORKOUTS</Link>
+                </div>
               </div>
             </div>
+
+            {/* Mobile menu  */}
+            <div className="block lg:hidden">
+              <div>
+                <FontAwesomeIcon icon={faBars} onClick={() => setMobileMenuVisible(!mobileMenuVisible)} />
+              </div>
+              {
+                mobileMenuVisible &&
+                <div className="nav-navlinks">
+                  <div className="nav-navlink">
+                    <Link className="navlink" href="/">HOME</Link>
+                  </div>
+                  <div className="nav-navlink">
+                    <Link className="navlink" href="/about">ABOUT</Link>
+                  </div>
+                  <div className="nav-navlink">
+                    <Link className="navlink" href="/about">WORKOUTS</Link>
+                  </div>
+                </div>
+              }
+              
+            </div>
+            
+            {/* User Dropdown for Login and Registration */}
             <div className="nav-loginlink">
               <div className="nav-dropbtn">
                 <FontAwesomeIcon icon={faUser} />
@@ -54,6 +97,7 @@ export default function RootLayout({
                 </div>
               </div>
             </div>
+
           </nav>
         </header>
         <main>
