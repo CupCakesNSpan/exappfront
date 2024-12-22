@@ -55,7 +55,7 @@ export default function RootLayout({
                   <Link className="navlink" href="/about">ABOUT</Link>
                 </div>
                 <div className="nav-navlink">
-                  <Link className="navlink" href="/about">WORKOUTS</Link>
+                  <Link className="navlink" href="/workouts">WORKOUTS</Link>
                 </div>
               </div>
             </div>
