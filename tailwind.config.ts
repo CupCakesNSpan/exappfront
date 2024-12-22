@@ -63,6 +63,15 @@ export default {
       fontFamily: {
         montserrat: ["Montserrat", "sans-serif"],
         quattrocento: ["Quattrocento", "serif"],
+      },
+      borderRadius: {
+        '4xl': '2.5rem',
+        '5xl': '3.125rem',
+        '6xl': '3.75rem',
+        '7xl': '4.375rem',
+        '8xl': '5.625rem',
+        '9xl': '7.5rem',
+        '10xl': '10rem',
       }
     },
   },

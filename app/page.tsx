@@ -1,6 +1,7 @@
 "use client"
 import { useEffect } from 'react';
 import { authOnAppLoad } from '@/services/auth';
+import Image from 'next/image';
 
 export default function Home() {
 
@@ -13,58 +14,54 @@ export default function Home() {
 
   return (
     <div className="container">
+      {/* Title */}
+      <div className="welcome text-center md:text-left lg:text-left">
+        <p className=" text-3xl mt-2 md:text-5xl lg:text-5xl md:-translate-y-16 lg:-translate-y-16 md:ml-2 lg:ml-2">Welcome to APP</p>
+      </div>
+      {/* Introduction */}
       <div className="hero-header">
-        <div className="flex flex-row">
-          <div className="flex flex-col">
-            <div className="h-10 w-10 bg-summer-sea-blue-50"></div>
-            <div className="h-10 bg-summer-sea-blue-100"></div>
-            <div className="h-10 bg-summer-sea-blue-200"></div>
-            <div className="h-10 bg-summer-sea-blue-300"></div>
-            <div className="h-10 bg-summer-sea-blue-400"></div>
-            <div className="h-10 bg-summer-sea-blue-500"></div>
-            <div className="h-10 bg-summer-sea-blue-600"></div>
-            <div className="h-10 bg-summer-sea-blue-700"></div>
-            <div className="h-10 bg-summer-sea-blue-800"></div>
-            <div className="h-10 bg-summer-sea-blue-900"></div>
-          </div>
-          <div className="flex flex-col">
-            <div className="h-10 w-10 bg-summer-sky-blue-50"></div>
-            <div className="h-10 bg-summer-sky-blue-100"></div>
-            <div className="h-10 bg-summer-sky-blue-200"></div>
-            <div className="h-10 bg-summer-sky-blue-300"></div>
-            <div className="h-10 bg-summer-sky-blue-400"></div>
-            <div className="h-10 bg-summer-sky-blue-500"></div>
-            <div className="h-10 bg-summer-sky-blue-600"></div>
-            <div className="h-10 bg-summer-sky-blue-700"></div>
-            <div className="h-10 bg-summer-sky-blue-800"></div>
-            <div className="h-10 bg-summer-sky-blue-900"></div>
-          </div>
-          <div className="flex flex-col">
-            <div className="h-10 w-10 bg-summer-sand-50"></div>
-            <div className="h-10 bg-summer-sand-100"></div>
-            <div className="h-10 bg-summer-sand-200"></div>
-            <div className="h-10 bg-summer-sand-300"></div>
-            <div className="h-10 bg-summer-sand-400"></div>
-            <div className="h-10 bg-summer-sand-500"></div>
-            <div className="h-10 bg-summer-sand-600"></div>
-            <div className="h-10 bg-summer-sand-700"></div>
-            <div className="h-10 bg-summer-sand-800"></div>
-            <div className="h-10 bg-summer-sand-900"></div>
-          </div>
-          <div className="flex flex-col">
-            <div className="h-10 w-10 bg-summer-wet-sand-50"></div>
-            <div className="h-10 bg-summer-wet-sand-200"></div>
-            <div className="h-10 bg-summer-wet-sand-100"></div>
-            <div className="h-10 bg-summer-wet-sand-300"></div>
-            <div className="h-10 bg-summer-wet-sand-400"></div>
-            <div className="h-10 bg-summer-wet-sand-500"></div>
-            <div className="h-10 bg-summer-wet-sand-600"></div>
-            <div className="h-10 bg-summer-wet-sand-700"></div>
-            <div className="h-10 bg-summer-wet-sand-800"></div>
-            <div className="h-10 bg-summer-wet-sand-900"></div>
-          </div>
+        <div className="left-words">
+          <p className="left-words-title">Header section to introduce your app</p>
+          <p className="left-words-main">A tiny bit of detail about the app</p>
+        </div>
+        <div className="right-pictures">
+            <Image className="image-component" src="/images/exercise1.jpg" alt="Woman doing ab crunch" width={500} height={0} />
+        </div>
+      </div>
+
+      {/* App description */}
+      <div className="our-app-description">
+        <div className="left-pictures">
+          <Image className="image-component" src="/images/running.jpg" alt="Woman doing ab crunch" width={500} height={0} />
+        </div>
+        <div className="right-words">
+          <p className="right-words-title">A section to describe what the app does</p>
+          <p className="right-words-main">A tiny bit of detail about the what the app does</p>
+        </div>
+      </div>
+
+      {/* App features */}
+      <div className="our-app-features">
+        <div className="left-words">
+          <p className="left-words-title">A section to explain an app feature</p>
+          <p className="left-words-main">A brief description of the app feature</p>
+        </div>
+        <div className="right-pictures">
+          <Image className="image-component" src="/images/smartphone.jpg" alt="Woman doing ab crunch" width={500} height={0} />
+        </div>
+      </div>
+
+      {/* App benefits */}
+      <div className="our-app-benefits">
+        <div className="left-pictures">
+          <Image className="image-component" src="/images/success.jpg" alt="Woman doing ab crunch" width={500} height={0} />
+        </div>
+        <div className="right-words">
+          <p className="right-words-title">A section to describe the benefit of the app</p>
+          <p className="right-words-main">A bit more detail about the benefit of the app</p>
         </div>
       </div>
     </div>
+    
   );
 }

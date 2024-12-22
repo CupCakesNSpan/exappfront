@@ -102,9 +102,23 @@ export default function RootLayout({
         <main>
           {children}
         </main>
-        <footer>
-          CupCakesNSpan
-        </footer>
+        <footer className="home-footer">
+          <div className="company-info">
+            <p>CupCakesNSpan</p>
+          </div>
+          <div className="legal">
+            <p>Terms of service</p>
+            <p>Privacy policy</p>
+          </div>
+          <div className="social">
+            <p>Facebook</p>
+            <p>Twitter</p>
+            <p>Instagram</p>
+          </div>
+          <div className="credits">
+            <Link href="/credits">Credits</Link>
+          </div>
+      </footer>
       </body>
     </html>
   );
