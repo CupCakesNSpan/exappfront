@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import "./globals.css";
 import "./styles.css";
 import Link from 'next/link';
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import "./fontawesome";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 export const metadata: Metadata = {
   title: "Exercise App",
@@ -28,18 +32,26 @@ export default function RootLayout({
             </div>
             <div className="nav-navlinks">
               <div className="nav-navlink">
-                <Link href="/">Home</Link>
+                <Link className="navlink" href="/">HOME</Link>
               </div>
               <div className="nav-navlink">
-                <Link href="/about">About</Link>
+                <Link className="navlink" href="/about">ABOUT</Link>
               </div>
               <div className="nav-navlink">
-                <Link href="/about">Workouts</Link>
+                <Link className="navlink" href="/about">WORKOUTS</Link>
               </div>
             </div>
             <div className="nav-loginlink">
-              <div className="nav-navlink">
-                <Link href="/login">Login</Link>
+              <div className="nav-dropbtn">
+                <FontAwesomeIcon icon={faUser} />
+              </div>
+              <div className="dropdown-content">
+                <div className="nav-navlink">
+                  <Link className="dropdown-content-navlink" href="/login">Login</Link>
+                </div>
+                <div className="nav-navlink">
+                  <Link className="dropdown-content-navlink" href="/register">Register</Link>
+                </div>
               </div>
             </div>
           </nav>

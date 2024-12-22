@@ -1,18 +1,44 @@
 .nav-styles {
     @apply flex flex-row justify-between
-    h-12 md:h-16 lg:h-20
-    pt-3 md:pt-4 lg:pt-5 pl-3 pr-3
-    border-2 border-red-500
-    bg-summer-wet-sand-300 text-black font-semibold
+    h-10 md:h-12 lg:h-16
+    p-3 md:pt-4 lg:pt-5
+    bg-summer-wet-sand-300 text-black font-medium
     font-montserrat;
 }
 
 .nav-navlinks {
-    @apply flex flex-row justify-around
-    w-full
-    border-2 border-red-500
-    
+    @apply flex flex-row justify-center
+    space-x-4 md:space-x-6 lg:space-x-8
+    w-full 
 }
+
+.navlink {
+    @apply 
+    hover:border-b-4 hover:border-black
+}
+
+.nav-loginlink {
+    @apply hover:cursor-pointer;
+}
+
+.dropdown-content {
+    @apply
+    flex-col
+    hidden absolute bg-summer-wet-sand-100 shadow-lg
+    min-w-[160px] z-[1] right-0;
+}
+
+.dropdown-content .nav-navlink {
+    @apply p-2 hover:bg-summer-wet-sand-200;
+}
+
+.nav-loginlink:hover .dropdown-content {
+    @apply block;
+}
+
+.dropdown-content-navlink {
+    @apply block;
+ }
 
 .container {
 
