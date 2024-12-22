@@ -1,0 +1,11 @@
+{
+    "welcome": "Welcome to APP",
+    "introHeader": "Header section to introduce your app",
+    "introDetails": "A tiny bit of detail about the app",
+    "descriptionTitle": "A section to describe what the app does",
+    "descriptionDetails": "A tiny bit of detail about what the app does",
+    "featureTitle": "A section to explain an app feature",
+    "featureDetails": "A brief description of the app feature",
+    "benefitTitle": "A section to describe the benefit of the app",
+    "benefitDetails": "A bit more detail about the benefir of the app"
+}
