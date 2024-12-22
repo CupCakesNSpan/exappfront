@@ -1,12 +1,11 @@
 "use client"
-import type { Metadata } from "next";
 import "./globals.css";
 import "./styles.css";
 import Link from 'next/link';
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import "./fontawesome";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser, faTimes, faBars } from "@fortawesome/free-solid-svg-icons";
+import { faUser, faBars } from "@fortawesome/free-solid-svg-icons";
 import { usePathname } from "next/navigation";
 
 import { useState, useEffect } from "react";
@@ -62,13 +61,13 @@ export default function RootLayout({
             </div>
 
             {/* Mobile menu  */}
-            <div className="block lg:hidden">
+            <div className="block w-full ml-3 lg:hidden z-10">
               <div>
                 <FontAwesomeIcon icon={faBars} onClick={() => setMobileMenuVisible(!mobileMenuVisible)} />
               </div>
               {
                 mobileMenuVisible &&
-                <div className="nav-navlinks">
+                <div className="nav-navlinks-mobile">
                   <div className="nav-navlink">
                     <Link className="navlink" href="/">HOME</Link>
                   </div>
@@ -76,7 +75,7 @@ export default function RootLayout({
                     <Link className="navlink" href="/about">ABOUT</Link>
                   </div>
                   <div className="nav-navlink">
-                    <Link className="navlink" href="/about">WORKOUTS</Link>
+                    <Link className="navlink" href="/workouts">WORKOUTS</Link>
                   </div>
                 </div>
               }
@@ -84,11 +83,11 @@ export default function RootLayout({
             </div>
             
             {/* User Dropdown for Login and Registration */}
-            <div className="nav-loginlink">
-              <div className="nav-dropbtn">
+            <div className="nav-loginlink" onMouseLeave={() => setUserDropdownVisible(false)}>
+              <div className="nav-dropbtn" onMouseEnter={() => setUserDropdownVisible(true)}>
                 <FontAwesomeIcon icon={faUser} />
               </div>
-              <div className="dropdown-content">
+              <div className={`dropdown-content ${userDropdownVisible ? "block" : "hidden"}`}>
                 <div className="nav-navlink">
                   <Link className="dropdown-content-navlink" href="/login">Login</Link>
                 </div>

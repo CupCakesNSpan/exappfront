@@ -12,6 +12,14 @@
     w-full 
 }
 
+.nav-navlinks-mobile {
+    @apply flex flex-col justify-center
+    space-y-4 md:space-y-6 lg:space-y-8
+    bg-summer-wet-sand-100
+    max-w-[160px]
+    p-3
+}
+
 .navlink {
     @apply 
     hover:border-b-4 hover:border-black
