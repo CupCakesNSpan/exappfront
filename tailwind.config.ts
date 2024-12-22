@@ -26,7 +26,7 @@ export default {
         'summer-sky-blue': {
           50: "#EBF6FB",
           100: "#CCE8F5",
-          200: "99D3EB",
+          200: "#99D3EB",
           300: "#66BFE1",
           400: "#81BFDA",
           500: "#0096CA",
