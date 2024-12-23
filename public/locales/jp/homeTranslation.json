@@ -1,0 +1,11 @@
+{
+    "welcome": "アプリへようこそ",
+    "introHeader": "アプリを紹介するヘッダーセクション",
+    "introDetails": "アプリについての少しの詳細",
+    "descriptionTitle": "アプリの機能を説明するセクション",
+    "descriptionDetails": "アプリの機能についての少しの詳細",
+    "featureTitle": "アプリの特徴を説明するセクション",
+    "featureDetails": "アプリの特徴についての簡単な説明",
+    "benefitTitle": "アプリの利点を説明するセクション",
+    "benefitDetails": "アプリの利点についてのもう少し詳細な説明"
+}

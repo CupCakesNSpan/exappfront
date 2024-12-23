@@ -1,14 +1,13 @@
 "use client"
 import "./globals.css";
 import "./styles.css";
-import Link from 'next/link';
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import "./fontawesome";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser, faBars } from "@fortawesome/free-solid-svg-icons";
-import { usePathname } from "next/navigation";
-
 import { useState, useEffect } from "react";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import { I18nextProvider } from 'react-i18next';
+import i18n from '@services/i18n';
 
 // export const metadata: Metadata = {
 //   title: "Exercise App",
@@ -21,15 +20,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
 
-  const [userDropdownVisible, setUserDropdownVisible] = useState(false);
-  const [mobileMenuVisible, setMobileMenuVisible] = useState(false);
-  const pathname = usePathname();
-
-  // Close menus on route change
+  const [isTranslationReady, setTranslationReady] = useState(false);
   useEffect(() => {
-    setUserDropdownVisible(false);
-    setMobileMenuVisible(false);
-  }, [pathname]);
+    i18n.on('initialized', () => {
+      setTranslationReady(true);
+    });
+  }, []);
+
+  if(!isTranslationReady) {
+    return (
+      <html lang="en">
+        <body>
+          <div>Loading...</div>
+        </body>
+      </html>
+    );
+  }
 
   return (
     <html lang="en">
@@ -38,88 +44,15 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Quattrocento:wght@400;700&display=swap" rel="stylesheet" />
       </head>
-      <body>
-        <header>
-          <nav className="nav-styles">
-            <div className="nav-title">
-              AppNameAndLogo
-            </div>
-            
-            {/* Navigation Links */}
-            <div className="hidden lg:block">
-              <div className="nav-navlinks">
-                <div className="nav-navlink">
-                  <Link className="navlink" href="/">HOME</Link>
-                </div>
-                <div className="nav-navlink">
-                  <Link className="navlink" href="/about">ABOUT</Link>
-                </div>
-                <div className="nav-navlink">
-                  <Link className="navlink" href="/workouts">WORKOUTS</Link>
-                </div>
-              </div>
-            </div>
-
-            {/* Mobile menu  */}
-            <div className="block w-full ml-3 lg:hidden z-10">
-              <div>
-                <FontAwesomeIcon icon={faBars} onClick={() => setMobileMenuVisible(!mobileMenuVisible)} />
-              </div>
-              {
-                mobileMenuVisible &&
-                <div className="nav-navlinks-mobile">
-                  <div className="nav-navlink">
-                    <Link className="navlink" href="/">HOME</Link>
-                  </div>
-                  <div className="nav-navlink">
-                    <Link className="navlink" href="/about">ABOUT</Link>
-                  </div>
-                  <div className="nav-navlink">
-                    <Link className="navlink" href="/workouts">WORKOUTS</Link>
-                  </div>
-                </div>
-              }
-              
-            </div>
-            
-            {/* User Dropdown for Login and Registration */}
-            <div className="nav-loginlink" onMouseLeave={() => setUserDropdownVisible(false)}>
-              <div className="nav-dropbtn" onMouseEnter={() => setUserDropdownVisible(true)}>
-                <FontAwesomeIcon icon={faUser} />
-              </div>
-              <div className={`dropdown-content ${userDropdownVisible ? "block" : "hidden"}`}>
-                <div className="nav-navlink">
-                  <Link className="dropdown-content-navlink" href="/login">Login</Link>
-                </div>
-                <div className="nav-navlink">
-                  <Link className="dropdown-content-navlink" href="/register">Register</Link>
-                </div>
-              </div>
-            </div>
-
-          </nav>
-        </header>
-        <main>
-          {children}
-        </main>
-        <footer className="home-footer">
-          <div className="company-info">
-            <p>CupCakesNSpan</p>
-          </div>
-          <div className="legal">
-            <p>Terms of service</p>
-            <p>Privacy policy</p>
-          </div>
-          <div className="social">
-            <p>Facebook</p>
-            <p>Twitter</p>
-            <p>Instagram</p>
-          </div>
-          <div className="credits">
-            <Link href="/credits">Credits</Link>
-          </div>
-      </footer>
-      </body>
+      <I18nextProvider i18n={i18n}>
+        <body>
+          <Navbar />
+          <main>
+            {children}
+          </main>
+          <Footer />
+        </body>
+      </I18nextProvider>
     </html>
   );
 }
