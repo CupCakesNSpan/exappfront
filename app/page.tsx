@@ -35,7 +35,7 @@ export default function Home() {
       {/* App description */}
       <div className="our-app-description">
         <div className="left-pictures">
-          <Image className="image-component" src="/images/running.jpg" alt="Woman doing ab crunch" width={500} height={0} />
+          <Image className="image-component" src="/images/running.jpg" alt="A man running" width={500} height={0} />
         </div>
         <div className="right-words">
           <p className="right-words-title">{t('descriptionTitle')}</p>
@@ -50,14 +50,14 @@ export default function Home() {
           <p className="left-words-main">{t('featureDetails')}</p>
         </div>
         <div className="right-pictures">
-          <Image className="image-component" src="/images/smartphone.jpg" alt="Woman doing ab crunch" width={500} height={0} />
+          <Image className="image-component" src="/images/smartphone.jpg" alt="A smartphone being held" width={500} height={0} />
         </div>
       </div>
 
       {/* App benefits */}
       <div className="our-app-benefits">
         <div className="left-pictures">
-          <Image className="image-component" src="/images/success.jpg" alt="Woman doing ab crunch" width={500} height={0} />
+          <Image className="image-component" src="/images/success.jpg" alt="Two hands joined in celebration" width={500} height={0} />
         </div>
         <div className="right-words">
           <p className="right-words-title">{t('benefitTitle')}</p>
