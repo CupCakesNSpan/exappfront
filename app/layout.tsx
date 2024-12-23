@@ -6,7 +6,6 @@ import "./fontawesome";
 import { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-
 import { I18nextProvider } from 'react-i18next';
 import i18n from '@services/i18n';
 
