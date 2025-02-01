@@ -1,0 +1,60 @@
+
+.loginPage {
+    @apply flex flex-col justify-center items-center;
+    @apply font-montserrat font-medium
+}
+
+.titleSection {
+    @apply text-lg md:text-2xl lg:text-3xl;
+    @apply mt-3;
+}
+
+.loginPanel {
+    @apply p-3 mt-5 min-w-[500px];
+    @apply rounded-lg shadow-xl;
+    @apply bg-summer-wet-sand-300
+}
+
+.inputArea {
+    @apply w-full;
+}
+
+.aLabel {
+    
+}
+
+.anInput input {
+    @apply text-lg md:text-2xl lg:text-3xl;
+    @apply w-full rounded-lg p-2 md:p-2 lg:p-3;
+}
+
+.errorMessageArea {
+
+}
+
+.buttonsArea {
+    @apply text-center;
+}
+
+.buttonGroup {
+
+}
+
+.submitButton {
+    @apply h-10 min-w-36 rounded-lg mt-3 mb-3 shadow-md;
+    @apply text-white bg-summer-sky-blue-500;
+    @apply hover:bg-summer-sky-blue-700;
+    @apply active:bg-summer-sky-blue-500;
+}
+
+.redirectLinkArea {
+    @apply text-center;
+}
+
+.redirectLink {
+    @apply text-red-500;
+}
+
+.messageArea {
+    @apply text-center;
+}
