@@ -91,12 +91,10 @@ export default function Home() {
         </div>
       </section>
 
-      <div>
-        {/* AuthButtons */}
-        <section className="auth-buttons-area">
-          <AuthButtons />
-        </section>
-      </div>
+      {/* AuthButtons */}
+      <section className="auth-buttons-area">
+        <AuthButtons />
+      </section>
     </div>
   );
 }
