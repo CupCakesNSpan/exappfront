@@ -1,0 +1,19 @@
+/* Buttons style */
+
+.button-section {
+  @apply flex justify-center space-x-16 mt-8;
+}
+
+.login-button {
+  @apply h-10 min-w-36 rounded-lg mt-3 mb-3 shadow-md
+       bg-summer-sky-blue-500
+       text-white hover:bg-summer-sky-blue-700
+       active:bg-summer-sky-blue-500;
+}
+
+.register-button {
+  @apply h-10 min-w-36 rounded-lg mt-3 mb-3 shadow-md
+      bg-summer-sky-blue-500
+      text-white hover:bg-summer-sky-blue-700
+      active:bg-summer-sky-blue-500;
+}
