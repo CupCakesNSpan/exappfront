@@ -18,13 +18,13 @@ export default function Home() {
   return (
     <div className="container">
       {/* Title */}
-      <div className="welcome text-center md:text-left lg:text-left">
+      <section className="welcome text-center md:text-left lg:text-left">
         <p className=" text-3xl mt-2 md:text-5xl lg:text-5xl md:-translate-y-16 lg:-translate-y-16 md:ml-2 lg:ml-2">
           {t("welcome")}
         </p>
-      </div>
+      </section>
       {/* Introduction */}
-      <div className="hero-header">
+      <section className="hero-header">
         <div className="left-words">
           <p className="left-words-title">{t("introHeader")}</p>
           <p className="left-words-main">{t("introDetails")}</p>
@@ -38,10 +38,10 @@ export default function Home() {
             height={0}
           />
         </div>
-      </div>
+      </section>
 
       {/* App description */}
-      <div className="our-app-description">
+      <section className="our-app-description">
         <div className="left-pictures">
           <Image
             className="image-component"
@@ -55,10 +55,10 @@ export default function Home() {
           <p className="right-words-title">{t("descriptionTitle")}</p>
           <p className="right-words-main">{t("descriptionDetails")}</p>
         </div>
-      </div>
+      </section>
 
       {/* App features */}
-      <div className="our-app-features">
+      <section className="our-app-features">
         <div className="left-words">
           <p className="left-words-title">{t("featureTitle")}</p>
           <p className="left-words-main">{t("featureDetails")}</p>
@@ -72,10 +72,10 @@ export default function Home() {
             height={0}
           />
         </div>
-      </div>
+      </section>
 
       {/* App benefits */}
-      <div className="our-app-benefits">
+      <section className="our-app-benefits">
         <div className="left-pictures">
           <Image
             className="image-component"
@@ -89,11 +89,11 @@ export default function Home() {
           <p className="right-words-title">{t("benefitTitle")}</p>
           <p className="right-words-main">{t("benefitDetails")}</p>
         </div>
-      </div>
+      </section>
 
       <div>
         {/* AuthButtons */}
-        <section className="mt-40 bg-summer-wet-sand-500 h-50 ">
+        <section className="auth-buttons-area">
           <AuthButtons />
         </section>
       </div>

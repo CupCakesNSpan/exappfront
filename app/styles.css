@@ -148,3 +148,10 @@
   @apply flex flex-row justify-center
     space-x-4 md:space-x-6 lg:space-x-8;
 }
+
+/* AuthButtons */
+
+.auth-buttons-area {
+  @apply flex mt-40 bg-summer-wet-sand-500
+  justify-center;
+}
