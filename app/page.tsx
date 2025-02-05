@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { authOnAppLoad } from "@/services/auth";
 import Image from "next/image";
-import Buttons from "./components/Buttons";
+import AuthButtons from "./components/AuthButtons";
 
 export default function Home() {
   const { t } = useTranslation("homeTranslation");
@@ -92,9 +92,9 @@ export default function Home() {
       </div>
 
       <div>
-        {/* Buttons */}
+        {/* AuthButtons */}
         <section className="mt-40 bg-summer-wet-sand-500 h-50 ">
-          <Buttons />
+          <AuthButtons />
         </section>
       </div>
     </div>

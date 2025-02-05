@@ -1,7 +1,7 @@
 import Link from "next/link";
 import style from "./AuthButtons.module.css";
 
-const Buttons = () => {
+const AuthButtons = () => {
   return (
     <div className={style["button-section"]}>
       <Link href="/login">
@@ -14,4 +14,4 @@ const Buttons = () => {
   );
 };
 
-export default Buttons;
+export default AuthButtons;

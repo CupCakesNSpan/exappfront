@@ -1,4 +1,4 @@
-/* Buttons style */
+/* AuthButtons style */
 
 .button-section {
   @apply flex justify-center space-x-16 mt-8;
