@@ -1,8 +1,6 @@
-
-
 /* Nav styles */
 .nav-styles {
-    @apply flex flex-row justify-between
+  @apply flex flex-row justify-between
     h-10 md:h-12 lg:h-16
     p-3 md:pt-4 lg:pt-5
     bg-summer-wet-sand-300 text-black font-medium
@@ -11,58 +9,56 @@
 }
 
 .nav-navlinks {
-    @apply flex flex-row justify-center
+  @apply flex flex-row justify-center
     space-x-4 md:space-x-6 lg:space-x-8
-    w-full 
+    w-full;
 }
 
 .nav-navlinks-mobile {
-    @apply flex flex-col justify-center
+  @apply flex flex-col justify-center
     space-y-4 md:space-y-6 lg:space-y-8
     bg-summer-wet-sand-100
     max-w-[160px]
-    p-3
+    p-3;
 }
 
 .navlink {
-    @apply 
-    hover:border-b-4 hover:border-black
+  @apply hover:border-b-4 hover:border-black;
 }
 
 .nav-loginlink {
-    @apply hover:cursor-pointer;
+  @apply hover:cursor-pointer;
 }
 
 .dropdown-content {
-    @apply
-    flex-col
+  @apply flex-col
     hidden absolute bg-summer-wet-sand-100 shadow-lg
     min-w-[160px] z-[1] right-0;
 }
 
 .dropdown-content .nav-navlink {
-    @apply p-2 hover:bg-summer-wet-sand-200;
+  @apply p-2 hover:bg-summer-wet-sand-200;
 }
 
 .nav-loginlink:hover .dropdown-content {
-    @apply block;
+  @apply block;
 }
 
 .dropdown-content-navlink {
-    @apply block;
- }
+  @apply block;
+}
 
- /* Main page styles */
+/* Main page styles */
 
 .container {
-    @apply min-w-full
+  @apply min-w-full
     flex flex-col
     md:translate-y-28 lg:translate-y-28
-    font-montserrat
+    font-montserrat;
 }
 
 .hero-header {
-    @apply flex flex-col md:flex-row lg:flex-row justify-between
+  @apply flex flex-col md:flex-row lg:flex-row justify-between
     bg-summer-sea-blue-600 
     h-auto md:h-72 lg:h-72
     md:rounded-tr-10xl md:rounded-bl-10xl md:rounded-tl-5xl md:rounded-br-5xl
@@ -71,27 +67,27 @@
 }
 
 .left-words {
-    @apply flex-1 flex flex-col text-center items-center justify-center;
+  @apply flex-1 flex flex-col text-center items-center justify-center;
 }
 
 .left-words-title {
-    @apply text-white text-3xl sm:ml-2 md:ml-10 lg:ml-10;
+  @apply text-white text-3xl sm:ml-2 md:ml-10 lg:ml-10;
 }
 
 .left-words-main {
-    @apply text-white text-xl sm:ml-2 md:ml-16 lg:ml-16;
+  @apply text-white text-xl sm:ml-2 md:ml-16 lg:ml-16;
 }
 
 .right-pictures {
-    @apply flex-1 flex items-center justify-center md:-translate-y-20 lg:-translate-y-20;
+  @apply flex-1 flex items-center justify-center md:-translate-y-20 lg:-translate-y-20;
 }
 
 .image-component {
-    @apply rounded-5xl md:rounded-full lg:rounded-full border-8 border-spacing-8 border-white;
+  @apply rounded-5xl md:rounded-full lg:rounded-full border-8 border-spacing-8 border-white;
 }
 
 .our-app-description {
-    @apply flex flex-col md:flex-row lg:flex-row justify-between
+  @apply flex flex-col md:flex-row lg:flex-row justify-between
     bg-summer-wet-sand-500 
     h-auto md:h-72 lg:h-72
     md:rounded-tl-10xl md:rounded-br-10xl md:rounded-tr-5xl md:rounded-bl-5xl
@@ -101,23 +97,23 @@
 }
 
 .right-words {
-    @apply flex-1 flex flex-col text-center items-center justify-center;
+  @apply flex-1 flex flex-col text-center items-center justify-center;
 }
 
 .right-words-title {
-    @apply text-white text-3xl md:mr-10 lg:mr-10;
+  @apply text-white text-3xl md:mr-10 lg:mr-10;
 }
 
 .right-words-main {
-    @apply text-white text-xl md:mr-16 lg:mr-16;
+  @apply text-white text-xl md:mr-16 lg:mr-16;
 }
 
 .left-pictures {
-    @apply flex-1 flex items-center justify-center md:-translate-y-20 lg:-translate-y-20;
+  @apply flex-1 flex items-center justify-center md:-translate-y-20 lg:-translate-y-20;
 }
 
 .our-app-features {
-    @apply flex flex-col md:flex-row lg:flex-row justify-between
+  @apply flex flex-col md:flex-row lg:flex-row justify-between
     bg-summer-sea-blue-600 
     h-auto md:h-72 lg:h-72
     md:rounded-tr-10xl md:rounded-bl-10xl md:rounded-tl-5xl md:rounded-br-5xl
@@ -127,7 +123,7 @@
 }
 
 .our-app-benefits {
-    @apply flex flex-col md:flex-row lg:flex-row justify-between
+  @apply flex flex-col md:flex-row lg:flex-row justify-between
     bg-summer-wet-sand-500 
     h-auto md:h-72 lg:h-72
     md:rounded-tl-10xl md:rounded-br-10xl md:rounded-tr-5xl md:rounded-bl-5xl
@@ -139,18 +135,28 @@
 /* Footer styles */
 
 .home-footer {
-    @apply 
-    flex flex-col md:flex-row lg:flex-row justify-between
+  @apply flex flex-col md:flex-row lg:flex-row justify-between
     p-2 md:p-4 lg:p-6
     md:translate-y-72 lg:translate-y-72
     h-64 bg-slate-700
     text-white
     border-t-black border-t-2
-    font-montserrat
+    font-montserrat;
 }
 
 .language-switcher {
-    @apply flex flex-row justify-center
-    space-x-4 md:space-x-6 lg:space-x-8
+  @apply flex flex-row justify-center
+    space-x-4 md:space-x-6 lg:space-x-8;
 }
 
+/* AuthButtons styles*/
+
+/* .auth-buttons-area {
+  @apply flex mt-40 bg-summer-wet-sand-300
+  justify-center;
+} */
+
+.auth-buttons-area {
+  @apply flex justify-center items-center bg-summer-wet-sand-300 mt-40;
+  min-height: 25vh;
+}
