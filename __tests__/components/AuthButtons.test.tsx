@@ -17,20 +17,20 @@ describe("AuthButtons", () => {
 
   it("redirects to the login page when the login button is clicked", async () => {
     render(<AuthButtons />);
-    // Check to clicking the login button redirects to /login
+    // Create a fake push function
     const pushMock = jest.fn();
     (useRouter as jest.Mock).mockReturnValue({ push: pushMock });
-
+    // Check to clicking the login button redirects to /login
     await userEvent.click(screen.getByText("Login"));
     expect(pushMock).toHaveBeenCalledWith("/login");
   });
 
   it("redirects to the registration page when the register button is clicked", async () => {
     render(<AuthButtons />);
-    // Check to clicking the register button redirects to /register
+    // Create a fake push function
     const pushMock = jest.fn();
     (useRouter as jest.Mock).mockReturnValue({ push: pushMock });
-
+    // Check to clicking the register button redirects to /register
     await userEvent.click(screen.getByText("Register"));
     expect(pushMock).toHaveBeenCalledWith("/register");
   });
