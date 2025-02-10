@@ -8,6 +8,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { I18nextProvider } from 'react-i18next';
 import i18n from '@services/i18n';
+import { AuthProvider } from "./context/AuthContext";
 
 // export const metadata: Metadata = {
 //   title: "Exercise App",
@@ -46,11 +47,13 @@ export default function RootLayout({
       </head>
       <I18nextProvider i18n={i18n}>
         <body>
-          <Navbar />
-          <main>
-            {children}
-          </main>
-          <Footer />
+          <AuthProvider>
+            <Navbar />
+            <main>
+              {children}
+            </main>
+            <Footer />
+          </AuthProvider>
         </body>
       </I18nextProvider>
     </html>
