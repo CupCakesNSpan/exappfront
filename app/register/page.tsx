@@ -66,9 +66,8 @@ const Register = () => {
         <div className={styles.buttonsArea}>
           <div className={styles.buttonGroup}>
             <Link href="/login">
-              {" "}
               <button type="button" className={styles.registerButton}>
-                Register{" "}
+                Register
               </button>
             </Link>
           </div>
