@@ -1,14 +1,24 @@
-import "@testing-library/jest-dom";
-import { render, screen, fireEvent } from "@testing-library/react";
-import AuthButtons from "@/app/components/AuthButtons";
-import { useRouter } from "next/router";
+import React from 'react';
+import { describe, it, expect, vi, beforeAll, afterAll } from 'vitest';
+import { render, screen, fireEvent } from '@testing-library/react';
+import AuthButtons from "../../app/components/AuthButtons";
 import userEvent from "@testing-library/user-event";
 
-jest.mock("next/router", () => ({
-  useRouter: jest.fn(),
-}));
 
 describe("AuthButtons", () => {
+
+  // Mocking the window.location object to simulate navigation
+  beforeAll(() => {
+    const mockLocation = { assign: vi.fn() };
+    // Mock window.location with a custom object
+    Object.defineProperty(window, 'location', { value: mockLocation });
+  });
+
+  afterAll(() => {
+    // Clean up the mock after all tests
+    vi.restoreAllMocks();
+  });
+
   it("renders login and register buttons", () => {
     render(<AuthButtons />);
     expect(screen.getByText("Login")).toBeInTheDocument();
@@ -17,21 +27,15 @@ describe("AuthButtons", () => {
 
   it("redirects to the login page when the login button is clicked", async () => {
     render(<AuthButtons />);
-    // Create a fake push function
-    const pushMock = jest.fn();
-    (useRouter as jest.Mock).mockReturnValue({ push: pushMock });
-    // Check to clicking the login button redirects to /login
-    await userEvent.click(screen.getByText("Login"));
-    expect(pushMock).toHaveBeenCalledWith("/login");
+    const loginButton = screen.getByText("Login")
+    await userEvent.click(loginButton);
+    expect(window.location.assign).toHaveBeenCalledWith("/login");
   });
 
   it("redirects to the registration page when the register button is clicked", async () => {
     render(<AuthButtons />);
-    // Create a fake push function
-    const pushMock = jest.fn();
-    (useRouter as jest.Mock).mockReturnValue({ push: pushMock });
     // Check to clicking the register button redirects to /register
     await userEvent.click(screen.getByText("Register"));
-    expect(pushMock).toHaveBeenCalledWith("/register");
+    expect(window.location.assign).toHaveBeenCalledWith("/register");
   });
 });
