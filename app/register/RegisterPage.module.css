@@ -1,5 +1,42 @@
 .registerPage {
+  @apply flex flex-col justify-center items-center;
+  @apply font-montserrat font-medium;
 }
 
 .titleSection {
+  @apply text-lg md:text-2xl lg:text-2xl
+ mt-3;
+}
+
+.registerForm {
+}
+
+.inputArea {
+}
+
+.aLabel {
+}
+
+.anInput {
+}
+
+.errorMessageArea {
+}
+
+.buttonsArea {
+}
+
+.buttonGroup {
+}
+
+.registerButton {
+}
+
+.redirectLinkArea {
+}
+
+.redirectLink {
+}
+
+.messageArea {
 }
