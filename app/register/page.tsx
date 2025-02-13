@@ -65,9 +65,12 @@ const Register = () => {
         </div>
         <div className={styles.buttonsArea}>
           <div className={styles.buttonGroup}>
-            <button type="button" className={styles.registerButton}>
-              Register
-            </button>
+            <Link href="/login">
+              {" "}
+              <button type="button" className={styles.registerButton}>
+                Register{" "}
+              </button>
+            </Link>
           </div>
         </div>
         <div className={styles.redirectLinkArea}>
