@@ -1,0 +1,63 @@
+.registerPage {
+  @apply flex flex-col justify-center items-center;
+  @apply font-montserrat font-medium;
+}
+
+.titleSection {
+  @apply text-lg md:text-2xl lg:text-2xl
+ mt-3;
+}
+
+.registerForm {
+  @apply p-3 mt-10 min-w-[500px];
+  @apply rounded-lg shadow-2xl;
+  @apply bg-summer-wet-sand-400;
+  @apply gap-y-8;
+}
+
+.inputArea {
+  @apply mb-8;
+}
+
+.aLabel {
+  @apply ml-12;
+}
+
+.anInput {
+  @apply flex justify-center;
+}
+
+.anInput input {
+  @apply text-center w-[380px] text-lg md:text-xl lg:text-xl;
+  @apply rounded-lg p-2 md:p-2 lg:p-3;
+}
+
+.errorMessageArea {
+  @apply ml-12;
+}
+
+.buttonsArea {
+  @apply text-center;
+}
+
+.buttonGroup {
+}
+
+.registerButton {
+  @apply h-10 min-w-36 rounded-lg mt-3 mb-3 shadow-md
+    bg-summer-sky-blue-500
+    text-white hover:bg-summer-sky-blue-700;
+}
+
+.redirectLinkArea {
+  @apply text-center;
+}
+
+.redirectLink {
+  @apply text-center mt-6
+  hover:text-summer-sky-blue-700;
+}
+
+.messageArea {
+  @apply text-center mt-6;
+}
