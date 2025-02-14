@@ -1,7 +1,7 @@
 "use client";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { authOnAppLoad } from "@/services/auth";
+import { authOnAppLoad } from "../services/auth";
 import Image from "next/image";
 import AuthButtons from "./components/AuthButtons";
 

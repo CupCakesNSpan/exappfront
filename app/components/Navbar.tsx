@@ -1,4 +1,5 @@
 "use client"
+import React from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faBars } from "@fortawesome/free-solid-svg-icons";
 import Link from 'next/link';
@@ -75,14 +76,17 @@ const Navbar = () => {
                 <div className="nav-dropbtn" onMouseEnter={() => setUserDropdownVisible(true)}>
                   <FontAwesomeIcon icon={faUser} data-testid="user-icon" />
                 </div>
-                <div className={`dropdown-content ${userDropdownVisible ? "block" : "hidden"}`}>
-                  <div className="nav-navlink" data-testid="login-button">
-                    <Link className="dropdown-content-navlink" href="/login">{t('login')}</Link>
+                {userDropdownVisible && (
+                  <div className={`dropdown-content ${userDropdownVisible ? "block" : "hidden"}`}>
+                    <div className="nav-navlink" data-testid="login-button">
+                      <Link className="dropdown-content-navlink" href="/login">{t('login')}</Link>
+                    </div>
+                    <div className="nav-navlink" data-testid="register-button">
+                      <Link className="dropdown-content-navlink" href="/register">{t('register')}</Link>
+                    </div>
                   </div>
-                  <div className="nav-navlink" data-testid="register-button">
-                    <Link className="dropdown-content-navlink" href="/register">{t('register')}</Link>
-                  </div>
-                </div>
+                )}
+                
               </div>
               
 

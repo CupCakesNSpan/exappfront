@@ -1,5 +1,7 @@
-import '@testing-library/jest-dom';
+import React from 'react';
+import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
+import { waitFor } from '@testing-library/react';
 import Footer from '../../app/components/Footer';
 import { useTranslation } from 'react-i18next';
 
@@ -9,13 +11,13 @@ import { useTranslation } from 'react-i18next';
 //         t: (key: string) => key,
 //     }),
 // }));
-jest.mock('react-i18next', () => ({
-    useTranslation: jest.fn(),
+vi.mock('react-i18next', () => ({
+    useTranslation: vi.fn(),
   }));
 
 describe('Footer', () => {
-    const changeLanguageMock = jest.fn();
-    const tMock = jest.fn((key: string) => key);
+    const changeLanguageMock = vi.fn();
+    const tMock = vi.fn((key: string) => key);
 
     beforeEach(() => {
         (useTranslation as jest.Mock).mockReturnValue({ 
@@ -25,7 +27,7 @@ describe('Footer', () => {
     });
 
     afterEach(() => {
-        jest.clearAllMocks();
+        vi.clearAllMocks();
     })
 
     it('renders the footer with the correct translations', () => {
