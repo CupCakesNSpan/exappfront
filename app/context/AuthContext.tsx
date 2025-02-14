@@ -8,7 +8,7 @@ interface AuthContextProps {
     loading: boolean;
     token: string | null;
     login: (email: string, password: string) => Promise<void>;
-    handleLogout: () => Promise<void>
+    logout: () => Promise<void>
 }
 
 const AuthContext = createContext<AuthContextProps>({
@@ -16,7 +16,7 @@ const AuthContext = createContext<AuthContextProps>({
     loading:true,
     token: null,
     login: async () => {},
-    handleLogout: async () => {}
+    logout: async () => {}
 });
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -31,7 +31,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         setToken(token);
     };
 
-    const handleLogout = async () => {
+    // Make the registration here
+    // const register = async () => {
+
+    // }
+
+    const logout = async () => {
         await signOut(auth);
         setUser(null);
         setToken(null);
@@ -55,7 +60,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }, []);
 
     return (
-        <AuthContext.Provider value={{ user, loading, token, login, handleLogout }}>
+        <AuthContext.Provider value={{ user, loading, token, login, logout }}>
             {children}
         </AuthContext.Provider>
     );
