@@ -10,7 +10,7 @@
 
 .registerForm {
   @apply p-3 mt-10 min-w-[500px];
-  @apply rounded-lg shadow-xl;
+  @apply rounded-lg shadow-2xl;
   @apply bg-summer-wet-sand-400;
   @apply gap-y-8;
 }
@@ -20,7 +20,7 @@
 }
 
 .aLabel {
-  @apply ml-8;
+  @apply ml-12;
 }
 
 .anInput {
@@ -33,7 +33,7 @@
 }
 
 .errorMessageArea {
-  @apply ml-8;
+  @apply ml-12;
 }
 
 .buttonsArea {
