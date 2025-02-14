@@ -1,16 +1,15 @@
 import React from 'react';
-import Link from "next/link";
 import style from "./AuthButtons.module.css";
+import { useRouter } from "next/navigation";
 
 const AuthButtons = () => {
+
+  const router = useRouter();
+
   return (
     <div className={style["button-section"]}>
-      <Link href="/login">
-        <button className={style["login-button"]}>Login</button>
-      </Link>
-      <Link href="/register">
-        <button className={style["register-button"]}>Register</button>
-      </Link>
+        <button className={style["login-button"]} onClick={() => router.push("/login")}>Login</button>
+        <button className={style["register-button"]} onClick={() => router.push("/register")}>Register</button>
     </div>
   );
 };

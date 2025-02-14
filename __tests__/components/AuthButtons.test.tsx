@@ -1,41 +1,47 @@
 import React from 'react';
-import { describe, it, expect, vi, beforeAll, afterAll } from 'vitest';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { render, screen, waitFor, cleanup } from '@testing-library/react';
 import AuthButtons from "../../app/components/AuthButtons";
-import userEvent from "@testing-library/user-event";
+import userEvent from '@testing-library/user-event';
+import { useRouter } from 'next/navigation';
+import type { Mock } from 'vitest';
 
+// Mock the next/navigation
+vi.mock("next/navigation", () => ({
+  useRouter: vi.fn(),
+}));
 
 describe("AuthButtons", () => {
+  let mockPush: Mock;
 
-  // Mocking the window.location object to simulate navigation
-  beforeAll(() => {
-    const mockLocation = { assign: vi.fn() };
-    // Mock window.location with a custom object
-    Object.defineProperty(window, 'location', { value: mockLocation });
-  });
-
-  afterAll(() => {
-    // Clean up the mock after all tests
-    vi.restoreAllMocks();
-  });
-
-  it("renders login and register buttons", () => {
+  beforeEach(() => {
+    mockPush = vi.fn();
+    (useRouter as Mock).mockReturnValue({ push: mockPush });
     render(<AuthButtons />);
-    expect(screen.getByText("Login")).toBeInTheDocument();
-    expect(screen.getByText("Register")).toBeInTheDocument();
+  })
+
+  afterEach(() => {
+    cleanup();
+  })
+
+  it("should render login and register buttons", () => {
+    expect(screen.getByRole("button", { name: /login/i })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /register/i })).toBeInTheDocument();
   });
 
   it("redirects to the login page when the login button is clicked", async () => {
-    render(<AuthButtons />);
-    const loginButton = screen.getByText("Login")
+    const loginButton = screen.getByRole("button", { name: /login/i });
     await userEvent.click(loginButton);
-    expect(window.location.assign).toHaveBeenCalledWith("/login");
+    await waitFor(() => {
+      expect(mockPush).toHaveBeenCalledWith("/login");
+    });
   });
 
   it("redirects to the registration page when the register button is clicked", async () => {
-    render(<AuthButtons />);
-    // Check to clicking the register button redirects to /register
-    await userEvent.click(screen.getByText("Register"));
-    expect(window.location.assign).toHaveBeenCalledWith("/register");
+    const registerButton = screen.getByRole("button", { name: /register/i });
+    await userEvent.click(registerButton);
+    await waitFor(() => {
+      expect(mockPush).toHaveBeenCalledWith("/register");
+    });
   });
 });

@@ -1,12 +1,12 @@
 import React from 'react';
-import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { render, screen, fireEvent } from '@testing-library/react';
-import { waitFor } from '@testing-library/react';
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { render, screen, waitFor, cleanup } from '@testing-library/react';
+import type { Mock } from 'vitest';
 import Home from "./../app/page";
 import { useTranslation } from "react-i18next";
 import { authOnAppLoad } from "./../services/auth";
-import Image from "next/image";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
+import userEvent from '@testing-library/user-event';
 
 // Mock translations
 vi.mock("react-i18next", () => ({
@@ -29,21 +29,19 @@ vi.mock('next/navigation', () => ({
 }));
 
 describe("Home", () => {
-  let pushMock: ReturnType<typeof vi.fn>;
+  let mockPush: Mock;
 
   beforeEach(() => {
-    vi.clearAllMocks();
-    pushMock = vi.fn();
+    mockPush = vi.fn();
+    (useRouter as Mock).mockReturnValue({ push: mockPush });
+    render(<Home />);
+  });
 
-    vi.mock("next/navigation", () => ({
-      useRouter: () => ({
-        push: pushMock
-      })
-    }))
+  afterEach(() => {
+    cleanup();
   });
 
   it("renders the component successfully", () => {
-    render(<Home />);
 
     // Check if static text and translated keys are rendered
     expect(screen.getByText("welcome")).toBeInTheDocument();
@@ -57,46 +55,43 @@ describe("Home", () => {
     expect(screen.getByText("benefitDetails")).toBeInTheDocument();
   });
 
-  // it("calls authOnAppLoad on mount", async () => {
-  //   render(<Home />);
-  //   await waitFor(() => {
-  //     expect(authOnAppLoad).toHaveBeenCalledTimes(1);
-  //   });
-  // });
+  it("calls authOnAppLoad on mount", async () => {
+    await waitFor(() => {
+      expect(authOnAppLoad).toHaveBeenCalledTimes(2);
+    });
+  });
 
-  // it("renders images correctly", () => {
-  //   render(<Home />);
-  //   expect(screen.getByAltText("Woman doing ab crunch")).toBeInTheDocument();
-  //   expect(screen.getByAltText("A man running")).toBeInTheDocument();
-  //   expect(screen.getByAltText("A smartphone being held")).toBeInTheDocument();
-  //   expect(
-  //     screen.getByAltText("Two hands joined in celebration")
-  //   ).toBeInTheDocument();
-  // });
+  it("renders images correctly", () => {
+    expect(screen.getByAltText("Woman doing ab crunch")).toBeInTheDocument();
+    expect(screen.getByAltText("A man running")).toBeInTheDocument();
+    expect(screen.getByAltText("A smartphone being held")).toBeInTheDocument();
+    expect(
+      screen.getByAltText("Two hands joined in celebration")
+    ).toBeInTheDocument();
+  });
 
-  // it("renders login and register buttons", () => {
-  //   render(<Home />);
+  it("renders login and register buttons", () => {
 
-  //   const loginButton = screen.getByRole("button", { name: /login/ });
-  //   expect(loginButton).toBeInTheDocument();
+    const loginButton = screen.getByRole("button", { name: /login/i });
+    expect(loginButton).toBeInTheDocument();
 
-  //   const registerButton = screen.getByRole("button", { name: /register/ });
-  //   expect(registerButton).toBeInTheDocument();
-  // });
+    const registerButton = screen.getByRole("button", { name: /register/i });
+    expect(registerButton).toBeInTheDocument();
+  });
 
-  // it("navigates to login page when login button is clicked", () => {
-  //   render(<Home />);
-  //   const loginButton = screen.getByRole("button", { name: /login/i });
+  it("navigates to login page when login button is clicked", async () => {
+    const loginButton = screen.getByRole("button", { name: /login/i });
+    userEvent.click(loginButton);
+    await waitFor(() => {
+      expect(mockPush).toHaveBeenCalledWith("/login");
+    })
+  });
 
-  //   fireEvent.click(loginButton);
-  //   expect(pushMock).toHaveBeenCalledWith("/login");
-  // });
-
-  // it("navigates to register page when register button is clicked", () => {
-  //   render(<Home />);
-  //   const registerButton = screen.getByRole("button", { name: /register/i });
-
-  //   fireEvent.click(registerButton);
-  //   expect(pushMock).toHaveBeenCalledWith("/register");
-  // });
+  it("navigates to register page when register button is clicked", async () => {
+    const registerButton = screen.getByRole("button", { name: /register/i });
+    userEvent.click(registerButton);
+    await waitFor(() => {
+      expect(mockPush).toHaveBeenCalledWith("/register");
+    });
+  });
 });
