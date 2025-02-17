@@ -33,7 +33,8 @@
       "@components/*": [
         "./components/*"
       ]
-    }
+    },
+    "types": ["vitest"]
   },
   "include": [
     "next-env.d.ts",
