@@ -7,6 +7,7 @@ import {
   signInWithEmailAndPassword,
   signOut,
   createUserWithEmailAndPassword,
+  updateProfile,
 } from "firebase/auth";
 import { auth } from "@/services/clientApp";
 import { useRouter } from "next/navigation";
@@ -16,7 +17,11 @@ interface AuthContextProps {
   loading: boolean;
   token: string | null;
   login: (email: string, password: string) => Promise<void>;
-  register: (email: string, password: string) => Promise<void>;
+  register: (
+    email: string,
+    password: string,
+    username: string
+  ) => Promise<void>;
   handleLogout: () => Promise<void>;
 }
 
@@ -35,7 +40,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
   const [token, setToken] = useState<string | null>(null);
-  const router = useRouter();
 
   const login = async (email: string, password: string) => {
     const userCredential = await signInWithEmailAndPassword(
@@ -48,9 +52,26 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     setToken(token);
   };
 
-  const register = async (email: string, password: string) => {
-    await createUserWithEmailAndPassword(auth, email, password);
-    router.push("/login");
+  const register = async (
+    email: string,
+    password: string,
+    username: string
+  ) => {
+    try {
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      const user = userCredential.user;
+
+      await updateProfile(user, { displayName: username });
+
+      setUser(user);
+    } catch (err) {
+      console.error(err);
+      throw err;
+    }
   };
 
   const handleLogout = async () => {

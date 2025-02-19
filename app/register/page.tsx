@@ -33,7 +33,7 @@ const Register = () => {
       return;
     }
     try {
-      await register(email, password);
+      await register(email, password, username);
       router.push("/login");
     } catch (err: any) {
       console.error(err);
