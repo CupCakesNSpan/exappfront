@@ -10,7 +10,6 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "@/services/clientApp";
-import { useRouter } from "next/navigation";
 
 interface AuthContextProps {
   user: User | null;
