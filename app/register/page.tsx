@@ -25,21 +25,19 @@ const Register = () => {
     if (!email || !password || !confirmEmail || !confirmPassword) {
       setError("All fields are required.");
       return;
-    }
-    if (email !== confirmEmail) {
+    } else if (email !== confirmEmail) {
       setError("Emails do not match.");
       return;
-    }
-    if (password !== confirmPassword) {
+    } else if (password !== confirmPassword) {
       setError("Passwords do not match.");
       return;
     }
-
     try {
       await register(email, password);
       router.push("/login");
-    } catch (err) {
+    } catch (err: any) {
       console.error(err);
+      setError(err.message || "Registration failed. Please try again.");
     }
   };
 
@@ -132,7 +130,7 @@ const Register = () => {
         <div className={styles.buttonsArea}>
           <div className={styles.buttonGroup}>
             <Link href="/login">
-              <button type="button" className={styles.registerButton}>
+              <button type="submit" className={styles.registerButton}>
                 Register
               </button>
             </Link>
