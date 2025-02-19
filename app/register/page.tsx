@@ -1,7 +1,46 @@
 import Link from "next/link";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useAuth } from "../context/AuthContext";
 import styles from "./RegisterPage.module.css";
 
 const Register = () => {
+  const { register } = useAuth();
+  const router = useRouter();
+
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [confirmEmail, setConfirmEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError("");
+
+    // Basic form validation
+    if (!email || !password || !confirmEmail || !confirmPassword) {
+      setError("All fields are required.");
+      return;
+    }
+    if (email !== confirmEmail) {
+      setError("Emails do not match.");
+      return;
+    }
+    if (password !== confirmPassword) {
+      setError("Passwords do not match.");
+      return;
+    }
+
+    try {
+      await register(email, password);
+      router.push("/login");
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   return (
     <div className={styles.registerPage}>
       <div className={styles.titleSection}>
