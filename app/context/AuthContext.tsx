@@ -11,8 +11,6 @@ import {
 import { auth } from "@/services/clientApp";
 import { useRouter } from "next/navigation";
 
-const router = useRouter();
-
 interface AuthContextProps {
   user: User | null;
   loading: boolean;
@@ -37,6 +35,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
   const [token, setToken] = useState<string | null>(null);
+  const router = useRouter();
 
   const login = async (email: string, password: string) => {
     const userCredential = await signInWithEmailAndPassword(
