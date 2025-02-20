@@ -68,9 +68,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
       await updateProfile(user, { displayName: username });
 
       await sendEmailVerification(user);
-      console.log("Resistration successful. Verification email sent.");
+      console.log("Registration successful. Verification email sent.");
 
+      // Update state after setting up the user
+      const token = await getIdToken(user);
       setUser(user);
+      setToken(token);
     } catch (err) {
       console.error(err);
       throw err;
