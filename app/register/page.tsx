@@ -34,6 +34,10 @@ const Register = () => {
     }
     try {
       await register(email, password, username);
+      //Users won't be redirected to login immediately after registration.
+      setError(
+        "Registration successful. Please check your email for a verification link before logging in."
+      );
       router.push("/login");
     } catch (err: any) {
       console.error(err);
