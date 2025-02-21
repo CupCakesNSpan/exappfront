@@ -8,6 +8,7 @@ import {
   signOut,
   createUserWithEmailAndPassword,
   updateProfile,
+  sendEmailVerification,
 } from "firebase/auth";
 import { auth } from "@/services/clientApp";
 
@@ -66,6 +67,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
 
       await updateProfile(user, { displayName: username });
 
+      await sendEmailVerification(user);
+      console.log("Registration successful. Verification email sent.");
+
       setUser(user);
     } catch (err) {
       console.error(err);
@@ -80,6 +84,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   };
 
   useEffect(() => {
+    // Maybe we need this too..? Ensure loading starts
+    // setLoading(true);
     const unsubscribe = onIdTokenChanged(auth, async (user) => {
       setUser(user);
       setLoading(false);
@@ -89,6 +95,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
       } else {
         setToken(null);
       }
+      // setLoading(false);
     });
 
     return () => {
