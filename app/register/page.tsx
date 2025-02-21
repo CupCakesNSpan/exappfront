@@ -38,6 +38,10 @@ const Register = () => {
       setError(
         "Registration successful. Please check your email for a verification link before logging in."
       );
+      // We might need thi...? Delay redirection to allow users to read the success message.
+      // setTimeout(() => {
+      //     router.push("/login");
+      //   }, 3000);
       router.push("/login");
     } catch (err: any) {
       console.error(err);
@@ -133,11 +137,11 @@ const Register = () => {
         </div>
         <div className={styles.buttonsArea}>
           <div className={styles.buttonGroup}>
-            <Link href="/login">
-              <button type="submit" className={styles.registerButton}>
-                Register
-              </button>
-            </Link>
+            {/* <Link href="/login"> */}
+            <button type="submit" className={styles.registerButton}>
+              Register
+            </button>
+            {/* </Link> */}
           </div>
         </div>
         <div className={styles.redirectLinkArea}>

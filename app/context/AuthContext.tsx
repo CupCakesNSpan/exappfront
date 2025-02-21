@@ -84,6 +84,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   };
 
   useEffect(() => {
+    // Maybe we need this too..? Ensure loading starts
+    // setLoading(true);
     const unsubscribe = onIdTokenChanged(auth, async (user) => {
       setUser(user);
       setLoading(false);
@@ -93,6 +95,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
       } else {
         setToken(null);
       }
+      // setLoading(false);
     });
 
     return () => {
