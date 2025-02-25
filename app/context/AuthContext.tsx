@@ -8,6 +8,7 @@ import {
   signOut,
   createUserWithEmailAndPassword,
   updateProfile,
+  sendEmailVerification,
 } from "firebase/auth";
 import { auth } from "@/services/clientApp";
 
@@ -65,6 +66,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
       const user = userCredential.user;
 
       await updateProfile(user, { displayName: username });
+
+      await sendEmailVerification(user);
+      console.log("Registration successful. Verification email sent.");
 
       setUser(user);
     } catch (err) {
