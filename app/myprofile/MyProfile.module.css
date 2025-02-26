@@ -7,10 +7,33 @@
 .redirectOnboarding {
 }
 .onboardingButtonSection {
+  @apply text-center;
 }
 
 .onboardingButton {
+  @apply text-center text-white h-10 w-48
+  rounded-lg mt-8 shadow-md
+  bg-summer-sky-blue-500
+  hover:bg-summer-sky-blue-700;
 }
 
 .onboardingSection {
+}
+
+.exerciseButton {
+}
+
+.barriersButton {
+}
+
+.motivationButton {
+}
+
+.exerciserButton {
+}
+
+.goalsButton {
+}
+
+.contractButton {
 }

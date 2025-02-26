@@ -19,12 +19,12 @@ const MyProfile = () => {
         </button>
       </div>
       <div className={styles.onboardingSection}>
-        <button>Your Exercise Now</button>
-        <button>Barriers</button>
-        <button>Motivation</button>
-        <button>Become an exerciser</button>
-        <button>Goals</button>
-        <button>Contract</button>
+        <button className={styles.exerciseButton}>Your Exercise Now</button>
+        <button className={styles.barriersButton}>Barriers</button>
+        <button className={styles.motivationButton}>Motivation</button>
+        <button className={styles.exerciserButton}>Become an exerciser</button>
+        <button className={styles.goalsButton}>Goals</button>
+        <button className={styles.contractButton}>Contract</button>
       </div>
     </div>
   );
