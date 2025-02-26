@@ -18,13 +18,29 @@ const MyProfile = () => {
           Complete onboarding
         </button>
       </div>
-      <div className={styles.onboardingSection}>
-        <button className={styles.exerciseButton}>Your Exercise Now</button>
-        <button className={styles.barriersButton}>Barriers</button>
-        <button className={styles.motivationButton}>Motivation</button>
-        <button className={styles.exerciserButton}>Become an exerciser</button>
-        <button className={styles.goalsButton}>Goals</button>
-        <button className={styles.contractButton}>Contract</button>
+      <div className={styles.optionArea}>
+        <div className={styles.onboardingSection}>
+          <button type="button" className={styles.exerciseButton}>
+            Your Exercise Now
+          </button>
+          <button type="button" className={styles.barriersButton}>
+            Barriers
+          </button>
+          <button type="button" className={styles.motivationButton}>
+            Motivation
+          </button>
+          <button type="button" className={styles.exerciserButton}>
+            Become an exerciser
+          </button>
+          <button type="button" className={styles.goalsButton}>
+            Goals
+          </button>
+          <div>
+            <button type="button" className={styles.contractButton}>
+              Contract
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );

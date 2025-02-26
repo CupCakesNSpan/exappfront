@@ -17,23 +17,56 @@
   hover:bg-summer-sky-blue-700;
 }
 
+.optionArea {
+  @apply flex justify-center;
+}
+
 .onboardingSection {
+  @apply grid grid-cols-2 grid-rows-3 gap-x-2
+   p-3 mt-10;
+  @apply rounded-lg shadow-2xl;
+  @apply bg-summer-wet-sand-400;
+  @apply gap-y-4;
 }
 
 .exerciseButton {
+  @apply text-white h-10 w-48
+    rounded-lg mt-8 shadow-md
+    bg-summer-sky-blue-500
+    hover:bg-summer-sky-blue-700;
 }
 
 .barriersButton {
+  @apply text-white h-10 w-48
+    rounded-lg mt-8 shadow-md
+    bg-summer-sky-blue-500
+    hover:bg-summer-sky-blue-700;
 }
 
 .motivationButton {
+  @apply text-white h-10 w-48
+    rounded-lg mt-8 shadow-md
+    bg-summer-sky-blue-500
+    hover:bg-summer-sky-blue-700;
 }
 
 .exerciserButton {
+  @apply text-white h-10 w-48
+    rounded-lg mt-8 shadow-md
+    bg-summer-sky-blue-500
+    hover:bg-summer-sky-blue-700;
 }
 
 .goalsButton {
+  @apply text-white h-10 w-48
+    rounded-lg mt-8 shadow-md
+    bg-summer-sky-blue-500
+    hover:bg-summer-sky-blue-700;
 }
 
 .contractButton {
+  @apply text-white h-10 w-48
+    rounded-lg mt-8 shadow-md
+    bg-summer-sky-blue-500
+    hover:bg-summer-sky-blue-700;
 }
