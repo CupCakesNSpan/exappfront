@@ -2,10 +2,9 @@
 }
 
 .usernameSection {
+  @apply mt-6 ml-16;
 }
 
-.redirectOnboarding {
-}
 .onboardingButtonSection {
   @apply text-center;
 }
@@ -14,7 +13,7 @@
   @apply text-center text-white h-10 w-48
   rounded-lg mt-8 shadow-md
   bg-summer-sky-blue-500
-  hover:bg-summer-sky-blue-700;
+  hover:bg-summer-sky-blue-500;
 }
 
 .optionArea {
@@ -69,4 +68,8 @@
     rounded-lg mt-8 shadow-md
     bg-summer-sky-blue-500
     hover:bg-summer-sky-blue-700;
+}
+
+.warningToComplete {
+  @apply col-span-2 flex justify-center items-center text-center;
 }

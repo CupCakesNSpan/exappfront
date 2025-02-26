@@ -35,10 +35,11 @@ const MyProfile = () => {
           <button type="button" className={styles.goalsButton}>
             Goals
           </button>
-          <div>
-            <button type="button" className={styles.contractButton}>
-              Contract
-            </button>
+          <button type="button" className={styles.contractButton}>
+            Contract
+          </button>
+          <div className={styles.warningToComplete}>
+            <p>Complete your onboarding</p>
           </div>
         </div>
       </div>
