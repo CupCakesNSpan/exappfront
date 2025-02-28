@@ -40,7 +40,7 @@ const LoginPage = () => {
               placeholder="youremail@example.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-            />{" "}
+            />
           </div>
           <div className={styles.errorMessageArea}>
             <p>Error message</p>
