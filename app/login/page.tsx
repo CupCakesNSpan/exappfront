@@ -56,7 +56,7 @@ const LoginPage = () => {
               placeholder="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-            />{" "}
+            />
           </div>
           <div className={styles.errorMessageArea}>
             <p>Error message</p>
