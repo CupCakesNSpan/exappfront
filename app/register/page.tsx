@@ -34,6 +34,9 @@ const Register = () => {
     }
     try {
       await register(email, password, username);
+      setError(
+        "Registration successful. Please check your email for a verification link before logging in."
+      );
       router.push("/login");
     } catch (err: any) {
       console.error(err);
@@ -129,11 +132,9 @@ const Register = () => {
         </div>
         <div className={styles.buttonsArea}>
           <div className={styles.buttonGroup}>
-            <Link href="/login">
-              <button type="submit" className={styles.registerButton}>
-                Register
-              </button>
-            </Link>
+            <button type="submit" className={styles.registerButton}>
+              Register
+            </button>
           </div>
         </div>
         <div className={styles.redirectLinkArea}>
