@@ -1,6 +1,6 @@
 /* Nav styles */
 .nav-styles {
-  @apply flex flex-row justify-between
+  @apply flex items-center justify-center
     h-10 md:h-12 lg:h-16
     p-3 md:pt-4 lg:pt-5
     bg-summer-wet-sand-300 text-black font-medium
